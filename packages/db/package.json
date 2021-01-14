@@ -1,0 +1,58 @@
+{
+  "name": "@persistr/db",
+  "version": "1.0.0",
+  "description": "Key-value data store with support for multiple backends",
+  "keywords": [
+    "key",
+    "value",
+    "store",
+    "storage",
+    "db",
+    "database",
+    "cache",
+    "ttl",
+    "iterator",
+    "query"
+  ],
+  "author": "Sasa Djolic <sasa.djolic@gmail.com> (https://www.linkedin.com/in/sasadjolic/)",
+  "homepage": "https://github.com/persistr/db#readme",
+  "license": "GPL-3.0-only",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/persistr/db.git"
+  },
+  "scripts": {
+    "test": "npm run cover:memory && npm run cover:mysql && npm run cover:fs && nyc report --reporter=lcov --reporter=text",
+    "cover:memory": "nyc --silent npm run test:memory",
+    "cover:mysql": "nyc --silent --no-clean npm run test:mysql",
+    "cover:fs": "nyc --silent --no-clean npm run test:fs",
+    "test:memory": "DB=memory ./node_modules/.bin/cucumber-js ./tests/features -r ./tests/steps",
+    "test:mysql": "DB=mysql://root@localhost:3306/keewee ./node_modules/.bin/cucumber-js ./tests/features -r ./tests/steps",
+    "test:fs": "DB=fs TRANSIENT=true ./node_modules/.bin/cucumber-js ./tests/features -r ./tests/steps"
+  },
+  "bugs": {
+    "url": "https://github.com/persistr/db/issues"
+  },
+  "dependencies": {
+    "@persistr/db-fs": "^1.0.0",
+    "@persistr/db-memory": "^1.0.0",
+    "@persistr/db-sql": "^1.0.0",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "cucumber": "^6.0.5",
+    "json5": "^2.1.3",
+    "nyc": "^15.0.1"
+  }
+}

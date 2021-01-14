@@ -1,0 +1,32 @@
+{
+  "name": "@persistr/db-sql",
+  "version": "1.0.0",
+  "description": "Generic SQL storage adapter using Knex",
+  "author": "Sasa Djolic <sasa.djolic@gmail.com> (https://www.linkedin.com/in/sasadjolic/)",
+  "homepage": "https://github.com/persistr/db#readme",
+  "license": "GPL-3.0-only",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/persistr/db.git"
+  },
+  "bugs": {
+    "url": "https://github.com/persistr/db/issues"
+  },
+  "dependencies": {
+    "knex": "^0.20.13",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "cucumber": "^6.0.5"
+  }
+}
